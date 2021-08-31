@@ -81,11 +81,14 @@ function showInfo(districtId) {
 
     let upperName, middleName, lowerName;
     let upperDesc, middleDesc, lowerDesc;
+    let upperLocs;
     const descEntry = descriptions[districtId];
     if (isCliffside) {
         wardName = "Cliffside";
         upperName = descEntry["name"];
         upperDesc = descEntry["description"];
+        upperLocs = descEntry["notableLocations"];
+
         middleName = "";
         lowerName = "";
         middleDesc = "";
@@ -95,7 +98,7 @@ function showInfo(districtId) {
         const middleEntry = descEntry["middle"];
         const lowerEntry = descEntry["lower"];
 
-        const upperLocs = upperEntry["notableLocations"];
+        upperLocs = upperEntry["notableLocations"];
         const middleLocs = middleEntry["notableLocations"];
         const lowerLocs = lowerEntry["notableLocations"];
 
@@ -107,18 +110,19 @@ function showInfo(districtId) {
         middleDesc = middleEntry["description"];
         lowerDesc = lowerEntry["description"];
 
-        const upperLocNames = upperLocs["name"];
         const middleLocNames = middleLocs["name"];
         const lowerLocNames = lowerLocs["name"];
 
-        const upperLocDescs = upperLocs["description"];
         const middleLocDescs = middleLocs["description"];
         const lowerLocDescs = lowerLocs["description"];
 
-        addNotableLocations(upperLocNames, upperLocDescs, upperSection);
         addNotableLocations(middleLocNames, middleLocDescs, middleSection);
         addNotableLocations(lowerLocNames, lowerLocDescs, lowerSection);
     }
+    // Handle upper locations the same regardless
+    let upperLocNames = upperLocs["name"];
+    let upperLocDescs = upperLocs["description"];
+    addNotableLocations(upperLocNames, upperLocDescs, upperSection);
 
     // Convenience for debugging + populating descriptions
     if ([upperName, middleName, lowerName, upperDesc, middleDesc, lowerDesc].includes("")) {
