@@ -57,7 +57,7 @@ function loadMap() {
     let urlParams = new URLSearchParams(window.location.search);
     if (urlParams.has("json")) {
         let jsonUrl = urlParams.get("json");
-        getDescriptions(jsonUrl);
+        descriptionsFromUrl(jsonUrl);
     } else {
         setDefaultDescriptions();
     }
