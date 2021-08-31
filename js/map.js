@@ -172,7 +172,7 @@ function showInfo(districtId) {
     if (isCliffside) {
         wardName = "Cliffside";
         upperName = descEntry["name"];
-        upperDesc = descEntry["description"];
+        upperDesc = marked(descEntry["description"]);
         upperLocs = descEntry["notableLocations"];
 
         middleName = "";
@@ -192,9 +192,9 @@ function showInfo(districtId) {
         middleName = middleEntry["name"];
         lowerName = lowerEntry["name"];
 
-        upperDesc = upperEntry["description"];
-        middleDesc = middleEntry["description"];
-        lowerDesc = lowerEntry["description"];
+        upperDesc = marked(upperEntry["description"]);
+        middleDesc = marked(middleEntry["description"]);
+        lowerDesc = marked(lowerEntry["description"]);
 
         const middleLocNames = middleLocs["name"];
         const lowerLocNames = lowerLocs["name"];
@@ -225,9 +225,9 @@ function showInfo(districtId) {
     middleDistrict.innerText = middleName;
     lowerDistrict.innerText = lowerName;
 
-    upperInfo.innerText = upperDesc;
-    middleInfo.innerText = middleDesc;
-    lowerInfo.innerText = lowerDesc;
+    upperInfo.innerHTML = upperDesc;
+    middleInfo.innerHTML = middleDesc;
+    lowerInfo.innerHTML = lowerDesc;
 }
 
 function selectDistrict(district) {
