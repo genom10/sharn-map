@@ -18,6 +18,10 @@ body {
         grid-template-columns: 60% 1fr;
         height: 100vh;
     }
+
+    #infobox {
+        margin-left: 0;
+    }
 }
 
 h1 {
@@ -40,6 +44,7 @@ h1 {
 
 #infobox {
     grid-area: infobox;
+    margin: 0 2%;
 }
 
 #pageFooter {
