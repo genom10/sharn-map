@@ -111,8 +111,8 @@ function addNotableLocations(names, descriptions, section) {
         let tName = document.createElement("td");
         let tDesc = document.createElement("td");
 
-        tName.appendChild(document.createTextNode(districtName));
-        tDesc.appendChild(document.createTextNode(districtDesc));
+        tName.innerHTML = marked(districtName);
+        tDesc.innerHTML = marked(districtDesc);
 
         trow.appendChild(tName);
         trow.appendChild(tDesc);
