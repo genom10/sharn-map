@@ -62,12 +62,8 @@ h1 {
     display: flex;
 }
 
-.credits>li {
-    margin-right: 0.25em;
-}
-
-.credits>li:not(:last-child):after {
-    content: "•";
+.credits>li:not(:last-child) {
+    margin-right: 0.5em;
 }
 
 .credits a {
