@@ -16,6 +16,14 @@ boilerplate_district = {
     "description": "",
     "notableLocations": {"name": [], "description": []},
 }
+wards = {
+    "cliffside": "Cliffside",
+    "tavicks": "Tavick's Landing",
+    "menthis": "Menthis Plateau",
+    "central": "Central Plateau",
+    "dura": "Dura",
+    "northedge": "Northedge",
+}
 
 district_dict = {}
 for district_prefix, num_entries in district_nums.items():
@@ -32,6 +40,9 @@ for district_id, readable_name in cliffside_districts.items():
     cliffside_district = dict(**boilerplate_district)
     cliffside_district["name"] = readable_name
     district_dict[district_id] = cliffside_district
+
+for ward_id, ward_name in wards.items():
+    district_dict[ward_id] = {"name": ward_name, "description": ""}
 
 if not json_file.exists():
     json_file.write_text(json.dumps(district_dict, indent=4, sort_keys=True))

@@ -727,6 +727,18 @@
             }
         }
     },
+    "central": {
+        "description": "",
+        "name": "Central Plateau"
+    },
+    "cliffside": {
+        "description": "",
+        "name": "Cliffside"
+    },
+    "dura": {
+        "description": "",
+        "name": "Dura"
+    },
     "grayflood": {
         "description": "",
         "name": "Grayflood",
@@ -735,20 +747,28 @@
             "name": []
         }
     },
+    "menthis": {
+        "description": "",
+        "name": "Menthis Plateau"
+    },
     "mudCaves": {
-        "description": "<script>alert('Insecure');</script>",
+        "description": "",
         "name": "Mud Caves",
         "notableLocations": {
             "description": [],
             "name": []
         }
     },
+    "northedge": {
+        "description": "",
+        "name": "Northedge"
+    },
     "sharnsWelcome": {
-        "description": "Red light district.",
+        "description": "",
         "name": "Sharn's Welcome",
         "notableLocations": {
-            "description": ["A quaint bar with an underground fight club. In its short history, it has hosted some of the most infamous brawls in Sharn. Rumour has it that the bar also serves as the meeting place for an intrepid band of journalists."],
-            "name": ["The Fruit Punch"]
+            "description": [],
+            "name": []
         }
     },
     "shipsTowers": {
@@ -758,5 +778,9 @@
             "description": [],
             "name": []
         }
+    },
+    "tavicks": {
+        "description": "",
+        "name": "Tavick's Landing"
     }
 }

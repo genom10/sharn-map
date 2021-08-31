@@ -21,10 +21,13 @@
     <div id="map-container"></div>
     <div id="infobox">
         <article>
-            <h2 id="ward">How to use</h2>
+            <section id="wardSection">
+                <h2 id="ward">How to use</h2>
+                <p id="wardInfo">Hover over a district on the left to see more information here.</p>
+            </section>
             <section id="upperSection">
                 <h3 id="upperDistrict"></h3>
-                <p id="upperInfo">Hover over a district on the left to see more information here.</p>
+                <p id="upperInfo"></p>
             </section>
             <section id="middleSection">
                 <h3 id="middleDistrict">
@@ -53,6 +56,7 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dompurify@2.3.1/dist/purify.min.js"></script>
     <script src="js/map.js"></script>
 </body>
 

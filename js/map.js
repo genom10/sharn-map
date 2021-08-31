@@ -124,14 +124,15 @@ function addNotableLocations(names, descriptions, section) {
 }
 
 function showInfo(districtId) {
-    const wardNames = {
-        "C": "Central Plateau",
-        "M": "Menthis Plateau",
-        "T": "Tavick's Landing",
-        "N": "Northedge",
-        "D": "Dura"
+    const wardIds = {
+        "C": "central",
+        "M": "menthis",
+        "T": "tavicks",
+        "N": "northedge",
+        "D": "dura"
     };
     const ward = document.getElementById("ward");
+    const wardInfo = document.getElementById("wardInfo");
 
     const upperDistrict = document.getElementById("upperDistrict");
     const middleDistrict = document.getElementById("middleDistrict");
@@ -147,12 +148,12 @@ function showInfo(districtId) {
 
     // Determine ward name
     let isCliffside = true;
-    let wardName;
-    for (const key in wardNames) {
-        if (Object.hasOwnProperty.call(wardNames, key)) {
-            const currentWard = wardNames[key];
+    let wardKey;
+    for (const key in wardIds) {
+        if (Object.hasOwnProperty.call(wardIds, key)) {
+            const currentWard = wardIds[key];
             if (districtId.startsWith(key)) {
-                wardName = currentWard;
+                wardKey = currentWard;
                 isCliffside = false;
                 break;
             }
@@ -170,9 +171,9 @@ function showInfo(districtId) {
     let upperLocs;
     const descEntry = descriptions[districtId];
     if (isCliffside) {
-        wardName = "Cliffside";
+        wardKey = "cliffside";
         upperName = descEntry["name"];
-        upperDesc = marked(descEntry["description"]);
+        upperDesc = descToHtml(descEntry["description"]);
         upperLocs = descEntry["notableLocations"];
 
         middleName = "";
@@ -192,9 +193,9 @@ function showInfo(districtId) {
         middleName = middleEntry["name"];
         lowerName = lowerEntry["name"];
 
-        upperDesc = marked(upperEntry["description"]);
-        middleDesc = marked(middleEntry["description"]);
-        lowerDesc = marked(lowerEntry["description"]);
+        upperDesc = descToHtml(upperEntry["description"]);
+        middleDesc = descToHtml(middleEntry["description"]);
+        lowerDesc = descToHtml(lowerEntry["description"]);
 
         const middleLocNames = middleLocs["name"];
         const lowerLocNames = lowerLocs["name"];
@@ -210,8 +211,13 @@ function showInfo(districtId) {
     let upperLocDescs = upperLocs["description"];
     addNotableLocations(upperLocNames, upperLocDescs, upperSection);
 
+    // And handle ward names
+    const wardEntry = descriptions[wardKey];
+    const wardName = wardEntry["name"];
+    const wardDesc = descToHtml(wardEntry["description"]);
+
     // Convenience for debugging + populating descriptions
-    if ([upperName, middleName, lowerName, upperDesc, middleDesc, lowerDesc].includes("")) {
+    if ([upperName, middleName, lowerName, upperDesc, middleDesc, lowerDesc, wardDesc].includes("")) {
         lowerDesc += "\nID = " + districtId;
     }
     if (!isCliffside) {
@@ -225,9 +231,15 @@ function showInfo(districtId) {
     middleDistrict.innerText = middleName;
     lowerDistrict.innerText = lowerName;
 
+    wardInfo.innerHTML = wardDesc;
     upperInfo.innerHTML = upperDesc;
     middleInfo.innerHTML = middleDesc;
     lowerInfo.innerHTML = lowerDesc;
+}
+
+function descToHtml(description) {
+    // Convert a markdown description to sanitised HTML
+    return DOMPurify.sanitize(marked(description));
 }
 
 function selectDistrict(district) {
