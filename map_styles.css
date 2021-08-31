@@ -1,0 +1,73 @@
+.boundaries {
+    fill: none;
+    fill-opacity: 1;
+    stroke: #000000;
+    stroke-dasharray: none;
+    stroke-miterlimit: 4;
+    stroke-opacity: 1;
+    stroke-width: 0.8;
+}
+
+.rail {
+    fill: none;
+    fill-opacity: 1;
+    font-variation-settings: normal;
+    opacity: 1;
+    stop-color: #000000;
+    stop-opacity: 1;
+    stroke: teal;
+    stroke-dasharray: 0.2, 2.4;
+    stroke-dashoffset: 0;
+    stroke-linecap: round;
+    stroke-linejoin: miter;
+    stroke-miterlimit: 4;
+    stroke-opacity: 1;
+    stroke-width: 0.8;
+}
+
+.districts {
+    stroke: none;
+    fill: white;
+    fill-opacity: 1;
+}
+
+.districts>path:hover {
+    filter: brightness(150%);
+}
+
+.selected {
+    filter: brightness(150%);
+}
+
+.bridges {
+    stroke-dasharray: 3.19999999, 1.59999999, 0.8, 1.59999999;
+    stroke-dashoffset: 0;
+    stroke-linecap: round;
+    stroke-miterlimit: 4;
+    stroke-width: 0.8;
+    stroke: brown;
+}
+
+#central>.districts {
+    fill: tomato;
+}
+
+#tavicks>.districts {
+    fill: chocolate;
+}
+
+#menthis>.districts {
+    fill: darkorchid;
+}
+
+#dura>.districts {
+    fill: cornflowerblue;
+}
+
+#northedge>.districts {
+    fill: aquamarine;
+}
+
+#cliffside>.districts {
+    fill: cadetblue;
+}
