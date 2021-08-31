@@ -171,14 +171,14 @@ function showInfo(districtId) {
         lowerName = "Lower: " + lowerName;
     }
 
-    ward.innerHTML = wardName;
-    upperDistrict.innerHTML = upperName;
-    middleDistrict.innerHTML = middleName;
-    lowerDistrict.innerHTML = lowerName;
+    ward.innerText = wardName;
+    upperDistrict.innerText = upperName;
+    middleDistrict.innerText = middleName;
+    lowerDistrict.innerText = lowerName;
 
-    upperInfo.innerHTML = upperDesc;
-    middleInfo.innerHTML = middleDesc;
-    lowerInfo.innerHTML = lowerDesc;
+    upperInfo.innerText = upperDesc;
+    middleInfo.innerText = middleDesc;
+    lowerInfo.innerText = lowerDesc;
 }
 
 function selectDistrict(district) {

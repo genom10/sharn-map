@@ -736,7 +736,7 @@
         }
     },
     "mudCaves": {
-        "description": "",
+        "description": "<script>alert('Insecure');</script>",
         "name": "Mud Caves",
         "notableLocations": {
             "description": [],
