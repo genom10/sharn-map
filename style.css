@@ -5,6 +5,7 @@ body {
         "map-container"
         "infobox"
         "footer";
+    height: 100vh;
     margin: 0;
     font-family: 'Fira Sans', sans-serif;
 }
@@ -16,11 +17,12 @@ body {
             "map-container footer";
         grid-template-rows: 1fr 60px;
         grid-template-columns: 60% 1fr;
-        height: 100vh;
     }
 
-    #infobox {
+    #infobox,
+    #pageFooter {
         margin-left: 0;
+        margin-right: 5%;
     }
 }
 
@@ -51,12 +53,13 @@ h1 {
     grid-area: footer;
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    margin: 0 2%;
 }
 
 .credits {
     list-style: none;
     display: flex;
-    margin: auto;
 }
 
 .credits>li {
@@ -82,4 +85,27 @@ h1 {
 
 .locationsTable tr:nth-child(even) {
     background-color: #f1f1f1;
+}
+
+.uploadWrapper {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+}
+
+button {
+    background-color: black;
+    color: white;
+    border: none;
+    text-decoration: none;
+    padding: 10px 17px;
+    font-weight: bold;
+}
+
+input[type=file] {
+    font-size: 100px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
 }

@@ -744,10 +744,10 @@
         }
     },
     "sharnsWelcome": {
-        "description": "",
+        "description": "Red light district.",
         "name": "Sharn's Welcome",
         "notableLocations": {
-            "description": ["A quaint bar with an underground fight club. In its short history, this bar has hosted some of the most infamous brawls in Sharn. Rumour has it that the bar also serves as the meeting place for an intrepid band of journalists."],
+            "description": ["A quaint bar with an underground fight club. In its short history, it has hosted some of the most infamous brawls in Sharn. Rumour has it that the bar also serves as the meeting place for an intrepid band of journalists."],
             "name": ["The Fruit Punch"]
         }
     },
