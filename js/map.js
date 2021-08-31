@@ -110,6 +110,12 @@ function showInfo(districtId) {
         }
     }
 
+    // Remove location information tables
+    const locationTables = document.getElementsByClassName("locationsTable");
+    for (const table of locationTables) {
+        table.remove();
+    }
+
     let upperName, middleName, lowerName;
     let upperDesc, middleDesc, lowerDesc;
     let upperLocs;
