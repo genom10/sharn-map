@@ -17,24 +17,29 @@ function getDescriptions(jsonText) {
         descriptions = JSON.parse(jsonText);
     } catch (e) {
         alert(`Error with JSON file: ${e}`);
-        if (typeof descriptions === "undefined") {
-            setDefaultDescriptions();
-        }
+        setDefaultDescriptions();
     }
     showSelected();
 }
 
 function descriptionsFromUrl(url) {
     const xhr_json = new XMLHttpRequest();
-    xhr_json.open("GET", url, true);
+    xhr_json.open("GET", url, false);
     xhr_json.onload = () => {
         getDescriptions(xhr_json.responseText);
     };
-    xhr_json.send();
+    try {
+        xhr_json.send();
+    } catch (e) {
+        alert(`Error loading from ${url}, ensure that CORS is enabled at target.`);
+        setDefaultDescriptions();
+    }
 }
 
 function setDefaultDescriptions() {
-    descriptionsFromUrl("districtInfo.json");
+    if (typeof descriptions === "undefined") {
+        descriptionsFromUrl("districtInfo.json");
+    }
 }
 
 function loadMap() {
