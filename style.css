@@ -2,14 +2,23 @@ body {
     background-color: antiquewhite;
     display: grid;
     grid-template-areas:
-        "map-container infobox"
-        "map-container footer";
-    grid-template-rows: 1fr 60px;
-    grid-template-columns: 60% 1fr;
-    grid-gap: 10px;
-    height: 100vh;
+        "map-container"
+        "infobox"
+        "footer";
+    grid-template-columns: 1fr;
     margin: 0;
     font-family: 'Playfair Display', serif;
+}
+
+@media only screen and (min-width: 1050px) {
+    body {
+        grid-template-areas:
+            "map-container infobox"
+            "map-container footer";
+        grid-template-rows: 1fr 60px;
+        grid-template-columns: 60% 1fr;
+        height: 100vh;
+    }
 }
 
 h1 {
