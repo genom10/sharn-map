@@ -9,20 +9,37 @@
 }
 
 .rail {
-    fill: none;
-    fill-opacity: 1;
+    fill: white;
+    fill-opacity: 0;
     font-variation-settings: normal;
     opacity: 1;
     stop-color: #000000;
     stop-opacity: 1;
-    stroke: teal;
+    stroke: darkred;
     stroke-dasharray: 0.2, 2.4;
     stroke-dashoffset: 0;
     stroke-linecap: round;
     stroke-linejoin: miter;
     stroke-miterlimit: 4;
     stroke-opacity: 1;
-    stroke-width: 0.8;
+    stroke-width: 1.0;
+}
+
+.rail:hover {
+    animation-name: dashWalk;
+    animation-duration: 0.6s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+@keyframes dashWalk {
+    from {
+        stroke-dashoffset: 0;
+    }
+
+    to {
+        stroke-dashoffset: -2.6;
+    }
 }
 
 .districts {
@@ -45,7 +62,7 @@
     stroke-linecap: round;
     stroke-miterlimit: 4;
     stroke-width: 0.8;
-    stroke: brown;
+    stroke: midnightblue;
 }
 
 #central>.districts {
@@ -53,7 +70,7 @@
 }
 
 #tavicks>.districts {
-    fill: chocolate;
+    fill: lightcoral;
 }
 
 #menthis>.districts {
