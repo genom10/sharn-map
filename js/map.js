@@ -11,7 +11,7 @@ function showSelected() {
     }
 }
 
-function getDescriptions(jsonText) {
+function setDescriptionsFromJson(jsonText) {
     // Update descriptions variable based on JSON text
     try {
         descriptions = JSON.parse(jsonText);
@@ -26,7 +26,7 @@ function descriptionsFromUrl(url) {
     const xhr_json = new XMLHttpRequest();
     xhr_json.open("GET", url, false);
     xhr_json.onload = () => {
-        getDescriptions(xhr_json.responseText);
+        setDescriptionsFromJson(xhr_json.responseText);
     };
     try {
         xhr_json.send();
@@ -80,7 +80,7 @@ function loadMap() {
     const jsonInput = document.getElementById("jsonInput");
     jsonInput.onchange = () => {
         const uploadedJson = jsonInput.files[0];
-        uploadedJson.text().then(getDescriptions);
+        uploadedJson.text().then(setDescriptionsFromJson);
     };
 }
 
