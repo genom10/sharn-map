@@ -3,22 +3,59 @@
 var descriptions;
 var selectedDistrict;
 
+function showSelected() {
+    // Check if there's a district already selected and update info if so
+    const selectedDistricts = document.getElementsByClassName("selected");
+    if (selectedDistricts.length) {
+        showInfo(selectedDistricts[0].id);
+    }
+}
+
+function getDescriptions(jsonText) {
+    // Update descriptions variable based on JSON text
+    try {
+        descriptions = JSON.parse(jsonText);
+    } catch (e) {
+        alert(`Error with JSON file: ${e}`);
+        if (typeof descriptions === "undefined") {
+            setDefaultDescriptions();
+        }
+    }
+    showSelected();
+}
+
+function descriptionsFromUrl(url) {
+    const xhr_json = new XMLHttpRequest();
+    xhr_json.open("GET", url, true);
+    xhr_json.onload = () => {
+        getDescriptions(xhr_json.responseText);
+    };
+    xhr_json.send();
+}
+
+function setDefaultDescriptions() {
+    descriptionsFromUrl("districtInfo.json");
+}
+
 function loadMap() {
     // Ajax load the SVG
-    let xhr = new XMLHttpRequest();
+    const xhr = new XMLHttpRequest();
     xhr.open("GET", "sharn_css_cleared_elem_style.svg", false);
     xhr.overrideMimeType("image/svg+xml");
     xhr.onload = (e) => {
         document.getElementById("map-container").append(xhr.responseXML.documentElement);
     };
     xhr.send();
+
     // As well as the JSON containing the district information
-    let xhr_json = new XMLHttpRequest();
-    xhr_json.open("GET", "districtInfo.json", false);
-    xhr_json.onload = () => {
-        descriptions = JSON.parse(xhr_json.responseText);
-    };
-    xhr_json.send();
+    // Check URL for query string with JSON file
+    let urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.has("json")) {
+        let jsonUrl = urlParams.get("json");
+        getDescriptions(jsonUrl);
+    } else {
+        setDefaultDescriptions();
+    }
 
     // Add class to SVG
     document.getElementsByTagName("svg")[0].classList.add("map");
@@ -38,13 +75,7 @@ function loadMap() {
     const jsonInput = document.getElementById("jsonInput");
     jsonInput.onchange = () => {
         const uploadedJson = jsonInput.files[0];
-        uploadedJson.text().then(text => {
-            try {
-                descriptions = JSON.parse(text);
-            } catch (e) {
-                alert(`Error with JSON file: ${e}`);
-            }
-        });
+        uploadedJson.text().then(getDescriptions);
     };
 }
 
