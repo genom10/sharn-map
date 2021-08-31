@@ -40,10 +40,41 @@ function addNotableLocations(names, descriptions, section) {
     if (names.length == 0) {
         return;
     }
+    let table = document.createElement("table");
+    table.classList.add("locationsTable");
+
+    let theader = document.createElement("tr");
+
+    const columnNames = ["Location", "Description"];
+    columnNames.forEach(element => {
+        let headerCell = document.createElement("th");
+        headerCell.appendChild(document.createTextNode(element));
+        theader.appendChild(headerCell);
+    });
+
+    table.appendChild(theader);
+
+    for (let index = 0; index < names.length; index++) {
+        const districtName = names[index];
+        const districtDesc = descriptions[index];
+
+        let trow = document.createElement("tr");
+        let tName = document.createElement("td");
+        let tDesc = document.createElement("td");
+
+        tName.appendChild(document.createTextNode(districtName));
+        tDesc.appendChild(document.createTextNode(districtDesc));
+
+        trow.appendChild(tName);
+        trow.appendChild(tDesc);
+
+        table.appendChild(trow);
+    }
+
+    section.appendChild(table);
 }
 
 function showInfo(districtId) {
-    const locationsTableFormat = "<table>";
     const wardNames = {
         "C": "Central Plateau",
         "M": "Menthis Plateau",
