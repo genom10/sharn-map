@@ -1,13 +1,12 @@
 body {
-    background-color: antiquewhite;
+    background-color: azure;
     display: grid;
     grid-template-areas:
         "map-container"
         "infobox"
         "footer";
-    grid-template-columns: 1fr;
     margin: 0;
-    font-family: 'Playfair Display', serif;
+    font-family: 'Fira Sans', sans-serif;
 }
 
 @media only screen and (min-width: 1050px) {
@@ -45,5 +44,24 @@ h1 {
 
 #pageFooter {
     grid-area: footer;
-    text-align: center;
+    display: flex;
+    align-items: center;
+}
+
+.credits {
+    list-style: none;
+    display: flex;
+    margin: auto;
+}
+
+.credits>li {
+    margin-right: 0.25em;
+}
+
+.credits>li:not(:last-child):after {
+    content: "•";
+}
+
+.credits a {
+    color: black;
 }
