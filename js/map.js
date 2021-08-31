@@ -15,9 +15,9 @@ function loadMap() {
     // As well as the JSON containing the district information
     let xhr_json = new XMLHttpRequest();
     xhr_json.open("GET", "districtInfo.json", false);
-    xhr_json.onload = (e) => {
+    xhr_json.onload = () => {
         descriptions = JSON.parse(xhr_json.responseText);
-    }
+    };
     xhr_json.send();
 
     // Add class to SVG
@@ -33,6 +33,19 @@ function loadMap() {
             // TODO: show information, so long as we're hovering
         });
     }
+
+    // Add JSON upload handler
+    const jsonInput = document.getElementById("jsonInput");
+    jsonInput.onchange = () => {
+        const uploadedJson = jsonInput.files[0];
+        uploadedJson.text().then(text => {
+            try {
+                descriptions = JSON.parse(text);
+            } catch (e) {
+                alert(`Error with JSON file: ${e}`);
+            }
+        });
+    };
 }
 
 function addNotableLocations(names, descriptions, section) {
