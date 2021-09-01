@@ -45,7 +45,7 @@ function setDefaultDescriptions() {
 function loadMap() {
     // Ajax load the SVG
     const xhr = new XMLHttpRequest();
-    xhr.open("GET", "sharn_css_cleared_elem_style.svg", false);
+    xhr.open("GET", "sharn.svg", false);
     xhr.overrideMimeType("image/svg+xml");
     xhr.onload = (e) => {
         document.getElementById("map-container").append(xhr.responseXML.documentElement);
