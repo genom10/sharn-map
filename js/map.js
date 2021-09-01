@@ -245,16 +245,16 @@ function showInfo(districtId) {
     const wardName = wardEntry["name"];
     const wardDesc = descToHtml(wardEntry["description"]);
 
-    if (!isCliffside) {
-        upperName = "Upper: " + upperName;
-        middleName = "Middle: " + middleName;
-        lowerName = "Lower: " + lowerName;
-    }
-
     ward.innerText = wardName;
-    upperDistrict.innerText = upperName;
-    middleDistrict.innerText = middleName;
-    lowerDistrict.innerText = lowerName;
+    if (isCliffside) {
+        setDistrictName(upperDistrict, upperName, null);
+        middleDistrict.innerHTML = "";
+        lowerDistrict.innerHTML = "";
+    } else {
+        setDistrictName(upperDistrict, upperName, "upper");
+        setDistrictName(middleDistrict, middleName, "middle");
+        setDistrictName(lowerDistrict, lowerName, "lower");
+    }
 
     wardInfo.innerHTML = wardDesc;
     upperInfo.innerHTML = upperDesc;
@@ -263,6 +263,39 @@ function showInfo(districtId) {
 
     const districtIdSpan = document.getElementById("districtId");
     districtIdSpan.innerText = districtId;
+}
+
+function setDistrictName(nameElement, name, height) {
+    // Set a district name for a given height
+    const nameText = document.createTextNode(name);
+    // Clear the element
+    nameElement.innerHTML = "";
+
+    let direction;
+    switch (height) {
+        case "lower":
+            direction = "down";
+            break;
+        case "middle":
+            direction = "right";
+            break;
+        case "upper":
+            direction = "up";
+            break;
+        default:
+            // Cliffside district
+            nameElement.appendChild(nameText);
+            return;
+    }
+
+    const heightIcon = document.createElement("i");
+    heightIcon.classList.add("heightIcon");
+    heightIcon.classList.add("bi");
+    // heightIcon.classList.add(`bi-arrow-${direction}-circle-fill`);
+    heightIcon.classList.add(`bi-arrow-${direction}-square-fill`);
+
+    nameElement.appendChild(heightIcon);
+    nameElement.appendChild(nameText);
 }
 
 function descToHtml(description) {
