@@ -10,13 +10,13 @@ body {
     font-family: 'Fira Sans', sans-serif;
 }
 
-@media only screen and (min-width: 1050px) {
+@media only screen and (min-width: 768px) {
     body {
         grid-template-areas:
             "map-container infobox"
             "map-container footer";
         grid-template-rows: 1fr 60px;
-        grid-template-columns: 60% 1fr;
+        grid-template-columns: 50% 1fr;
     }
 
     #infobox,
