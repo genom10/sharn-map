@@ -2,7 +2,7 @@
 import json
 from pathlib import Path
 
-json_file = Path("districtInfo.json")
+JSON_FILE = Path("districtInfoEmpty.json")
 
 district_nums = {"M": 5, "C": 6, "T": 6, "N": 3, "D": 8}
 cliffside_districts = {
@@ -44,5 +44,4 @@ for district_id, readable_name in cliffside_districts.items():
 for ward_id, ward_name in wards.items():
     district_dict[ward_id] = {"name": ward_name, "description": ""}
 
-if not json_file.exists():
-    json_file.write_text(json.dumps(district_dict, indent=4, sort_keys=True))
+JSON_FILE.write_text(json.dumps(district_dict, indent=4, sort_keys=True))
