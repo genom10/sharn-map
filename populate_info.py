@@ -4,7 +4,6 @@ from pathlib import Path
 
 JSON_FILE = Path("districtInfoEmpty.json")
 
-district_nums = {"M": 5, "C": 6, "T": 6, "N": 3, "D": 8}
 cliffside_districts = {
     "grayflood": "Grayflood",
     "sharnsWelcome": "Sharn's Welcome",
@@ -24,16 +23,49 @@ wards = {
     "dura": "Dura",
     "northedge": "Northedge",
 }
+# discrictId : (lowerName, middleName, upperName)
+other_districts = {
+    "N1": ("Longstairs", "High Hope", "Shae Lias"),
+    "N2": ("Stonegard", "Oakbridge", "Oak Towers"),
+    "N3": ("North Market", "Holdfast", "Crystal Bridge"),
+    "C1": ("North Towers", "Tradefair", "Platinum Heights"),
+    "C2": ("Boldrei's Heart", "Sovereign Towers", "Korran Thiven"),
+    "C3": ("Ollandra's Kitchen", "Sword Point", "Skysedge Peak"),
+    "C4": ("Granite Halls", "Dragon Towers", "Highest Towers"),
+    "C5": ("Vallia Towers", "Dava Gate", "Mithral Tower"),
+    "C6": ("Myshan Gardens", "Ambassador Towers", "Korranath"),
+    "M1": ("Torchfire", "Smoky Towers", "Den'iyas"),
+    "M2": ("Firelight", "Little Plains", "Platinate"),
+    "M3": ("Center Bridge", "Everbright", "University District"),
+    "M4": ("Downstairs", "Cassan Bridge", "Seventh Tower"),
+    "M5": ("Forgelight Towers", "Warden Towers", "Ivy Towers"),
+    "T1": ("Terminus", "Tavick's Market", "Silver Gate"),
+    "T2": ("Wroann's Gate", "Cornerstone", "Pinnacle"),
+    "T3": ("Cogsgate", "Graywall's", "Twelve Pillars"),
+    "T4": ("High Walls", "Dancing Shadows", "Copper Arch"),
+    "T5": ("Dragoneyes", "Deathsgate", "Dalan's Refuge"),
+    "T6": ("Black Arch", "Little Barrington", "Ocean View"),
+    "T7": ("Foundation", "Kenton", "Sunrise"),
+    "D1": ("Precarious", "Underlook", "Overlook"),
+    "D2": ("Old Keep", "Broken Arch", "Highwater"),
+    "D3": ("Malleon's Gate", "Tumbledown", "Clifftop"),
+    "D4": ("Gate of Gold", "Hareth's Folly", "Hope's Peak"),
+    "D5": ("Callestan", "The Bazaar", "Redstone"),
+    "D6": ("The Stores", "Stormhold", "Daggerwatch"),
+    "D7": ("Fallen", "Rattlestone", "Highhold"),
+}
 
 district_dict = {}
-for district_prefix, num_entries in district_nums.items():
-    for i in range(1, num_entries + 1):
-        district_id = f"{district_prefix}{i}"
-        district_dict[district_id] = {
-            "upper": boilerplate_district,
-            "middle": boilerplate_district,
-            "lower": boilerplate_district,
-        }
+for district_id, names in other_districts.items():
+    ward_heights = ("lower", "middle", "upper")
+
+    district_entry = {}
+    for height, district_name in zip(ward_heights, names):
+        template_dict = dict(**boilerplate_district)
+        template_dict["name"] = district_name
+        district_entry[height] = template_dict
+
+    district_dict[district_id] = district_entry
 
 for district_id, readable_name in cliffside_districts.items():
     # Copy the boilerplate

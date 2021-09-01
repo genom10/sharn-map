@@ -2,7 +2,7 @@
     "C1": {
         "lower": {
             "description": "",
-            "name": "",
+            "name": "North Towers",
             "notableLocations": {
                 "description": [],
                 "name": []
@@ -10,7 +10,7 @@
         },
         "middle": {
             "description": "",
-            "name": "",
+            "name": "Tradefair",
             "notableLocations": {
                 "description": [],
                 "name": []
@@ -18,7 +18,7 @@
         },
         "upper": {
             "description": "",
-            "name": "",
+            "name": "Platinum Heights",
             "notableLocations": {
                 "description": [],
                 "name": []
@@ -28,7 +28,7 @@
     "C2": {
         "lower": {
             "description": "",
-            "name": "",
+            "name": "Boldrei's Heart",
             "notableLocations": {
                 "description": [],
                 "name": []
@@ -36,7 +36,7 @@
         },
         "middle": {
             "description": "",
-            "name": "",
+            "name": "Sovereign Towers",
             "notableLocations": {
                 "description": [],
                 "name": []
@@ -44,7 +44,7 @@
         },
         "upper": {
             "description": "",
-            "name": "",
+            "name": "Korran Thiven",
             "notableLocations": {
                 "description": [],
                 "name": []
@@ -54,7 +54,7 @@
     "C3": {
         "lower": {
             "description": "",
-            "name": "",
+            "name": "Ollandra's Kitchen",
             "notableLocations": {
                 "description": [],
                 "name": []
@@ -62,7 +62,7 @@
         },
         "middle": {
             "description": "",
-            "name": "",
+            "name": "Sword Point",
             "notableLocations": {
                 "description": [],
                 "name": []
@@ -70,7 +70,7 @@
         },
         "upper": {
             "description": "",
-            "name": "",
+            "name": "Skysedge Peak",
             "notableLocations": {
                 "description": [],
                 "name": []
@@ -80,7 +80,7 @@
     "C4": {
         "lower": {
             "description": "",
-            "name": "",
+            "name": "Granite Halls",
             "notableLocations": {
                 "description": [],
                 "name": []
@@ -88,7 +88,7 @@
         },
         "middle": {
             "description": "",
-            "name": "",
+            "name": "Dragon Towers",
             "notableLocations": {
                 "description": [],
                 "name": []
@@ -96,7 +96,7 @@
         },
         "upper": {
             "description": "",
-            "name": "",
+            "name": "Highest Towers",
             "notableLocations": {
                 "description": [],
                 "name": []
@@ -106,7 +106,7 @@
     "C5": {
         "lower": {
             "description": "",
-            "name": "",
+            "name": "Vallia Towers",
             "notableLocations": {
                 "description": [],
                 "name": []
@@ -114,7 +114,7 @@
         },
         "middle": {
             "description": "",
-            "name": "",
+            "name": "Dava Gate",
             "notableLocations": {
                 "description": [],
                 "name": []
@@ -122,7 +122,7 @@
         },
         "upper": {
             "description": "",
-            "name": "",
+            "name": "Mithral Tower",
             "notableLocations": {
                 "description": [],
                 "name": []
@@ -132,7 +132,7 @@
     "C6": {
         "lower": {
             "description": "",
-            "name": "",
+            "name": "Myshan Gardens",
             "notableLocations": {
                 "description": [],
                 "name": []
@@ -140,7 +140,7 @@
         },
         "middle": {
             "description": "",
-            "name": "",
+            "name": "Ambassador Towers",
             "notableLocations": {
                 "description": [],
                 "name": []
@@ -148,7 +148,7 @@
         },
         "upper": {
             "description": "",
-            "name": "",
+            "name": "Korranath",
             "notableLocations": {
                 "description": [],
                 "name": []
@@ -158,7 +158,7 @@
     "D1": {
         "lower": {
             "description": "",
-            "name": "",
+            "name": "Precarious",
             "notableLocations": {
                 "description": [],
                 "name": []
@@ -166,7 +166,7 @@
         },
         "middle": {
             "description": "",
-            "name": "",
+            "name": "Underlook",
             "notableLocations": {
                 "description": [],
                 "name": []
@@ -174,7 +174,7 @@
         },
         "upper": {
             "description": "",
-            "name": "",
+            "name": "Overlook",
             "notableLocations": {
                 "description": [],
                 "name": []
@@ -184,7 +184,7 @@
     "D2": {
         "lower": {
             "description": "",
-            "name": "",
+            "name": "Old Keep",
             "notableLocations": {
                 "description": [],
                 "name": []
@@ -192,7 +192,7 @@
         },
         "middle": {
             "description": "",
-            "name": "",
+            "name": "Broken Arch",
             "notableLocations": {
                 "description": [],
                 "name": []
@@ -200,7 +200,7 @@
         },
         "upper": {
             "description": "",
-            "name": "",
+            "name": "Highwater",
             "notableLocations": {
                 "description": [],
                 "name": []
@@ -210,7 +210,7 @@
     "D3": {
         "lower": {
             "description": "",
-            "name": "",
+            "name": "Malleon's Gate",
             "notableLocations": {
                 "description": [],
                 "name": []
@@ -218,7 +218,7 @@
         },
         "middle": {
             "description": "",
-            "name": "",
+            "name": "Tumbledown",
             "notableLocations": {
                 "description": [],
                 "name": []
@@ -226,7 +226,7 @@
         },
         "upper": {
             "description": "",
-            "name": "",
+            "name": "Clifftop",
             "notableLocations": {
                 "description": [],
                 "name": []
@@ -236,7 +236,7 @@
     "D4": {
         "lower": {
             "description": "",
-            "name": "",
+            "name": "Gate of Gold",
             "notableLocations": {
                 "description": [],
                 "name": []
@@ -244,7 +244,7 @@
         },
         "middle": {
             "description": "",
-            "name": "",
+            "name": "Hareth's Folly",
             "notableLocations": {
                 "description": [],
                 "name": []
@@ -252,7 +252,7 @@
         },
         "upper": {
             "description": "",
-            "name": "",
+            "name": "Hope's Peak",
             "notableLocations": {
                 "description": [],
                 "name": []
@@ -262,7 +262,7 @@
     "D5": {
         "lower": {
             "description": "",
-            "name": "",
+            "name": "Callestan",
             "notableLocations": {
                 "description": [],
                 "name": []
@@ -270,7 +270,7 @@
         },
         "middle": {
             "description": "",
-            "name": "",
+            "name": "The Bazaar",
             "notableLocations": {
                 "description": [],
                 "name": []
@@ -278,7 +278,7 @@
         },
         "upper": {
             "description": "",
-            "name": "",
+            "name": "Redstone",
             "notableLocations": {
                 "description": [],
                 "name": []
@@ -288,7 +288,7 @@
     "D6": {
         "lower": {
             "description": "",
-            "name": "",
+            "name": "The Stores",
             "notableLocations": {
                 "description": [],
                 "name": []
@@ -296,7 +296,7 @@
         },
         "middle": {
             "description": "",
-            "name": "",
+            "name": "Stormhold",
             "notableLocations": {
                 "description": [],
                 "name": []
@@ -304,7 +304,7 @@
         },
         "upper": {
             "description": "",
-            "name": "",
+            "name": "Daggerwatch",
             "notableLocations": {
                 "description": [],
                 "name": []
@@ -314,7 +314,7 @@
     "D7": {
         "lower": {
             "description": "",
-            "name": "",
+            "name": "Fallen",
             "notableLocations": {
                 "description": [],
                 "name": []
@@ -322,7 +322,7 @@
         },
         "middle": {
             "description": "",
-            "name": "",
+            "name": "Rattlestone",
             "notableLocations": {
                 "description": [],
                 "name": []
@@ -330,33 +330,7 @@
         },
         "upper": {
             "description": "",
-            "name": "",
-            "notableLocations": {
-                "description": [],
-                "name": []
-            }
-        }
-    },
-    "D8": {
-        "lower": {
-            "description": "",
-            "name": "",
-            "notableLocations": {
-                "description": [],
-                "name": []
-            }
-        },
-        "middle": {
-            "description": "",
-            "name": "",
-            "notableLocations": {
-                "description": [],
-                "name": []
-            }
-        },
-        "upper": {
-            "description": "",
-            "name": "",
+            "name": "Highhold",
             "notableLocations": {
                 "description": [],
                 "name": []
@@ -366,7 +340,7 @@
     "M1": {
         "lower": {
             "description": "",
-            "name": "",
+            "name": "Torchfire",
             "notableLocations": {
                 "description": [],
                 "name": []
@@ -374,7 +348,7 @@
         },
         "middle": {
             "description": "",
-            "name": "",
+            "name": "Smoky Towers",
             "notableLocations": {
                 "description": [],
                 "name": []
@@ -382,7 +356,7 @@
         },
         "upper": {
             "description": "",
-            "name": "",
+            "name": "Den'iyas",
             "notableLocations": {
                 "description": [],
                 "name": []
@@ -392,7 +366,7 @@
     "M2": {
         "lower": {
             "description": "",
-            "name": "",
+            "name": "Firelight",
             "notableLocations": {
                 "description": [],
                 "name": []
@@ -400,7 +374,7 @@
         },
         "middle": {
             "description": "",
-            "name": "",
+            "name": "Little Plains",
             "notableLocations": {
                 "description": [],
                 "name": []
@@ -408,7 +382,7 @@
         },
         "upper": {
             "description": "",
-            "name": "",
+            "name": "Platinate",
             "notableLocations": {
                 "description": [],
                 "name": []
@@ -418,7 +392,7 @@
     "M3": {
         "lower": {
             "description": "",
-            "name": "",
+            "name": "Center Bridge",
             "notableLocations": {
                 "description": [],
                 "name": []
@@ -426,7 +400,7 @@
         },
         "middle": {
             "description": "",
-            "name": "",
+            "name": "Everbright",
             "notableLocations": {
                 "description": [],
                 "name": []
@@ -434,7 +408,7 @@
         },
         "upper": {
             "description": "",
-            "name": "",
+            "name": "University District",
             "notableLocations": {
                 "description": [],
                 "name": []
@@ -444,7 +418,7 @@
     "M4": {
         "lower": {
             "description": "",
-            "name": "",
+            "name": "Downstairs",
             "notableLocations": {
                 "description": [],
                 "name": []
@@ -452,7 +426,7 @@
         },
         "middle": {
             "description": "",
-            "name": "",
+            "name": "Cassan Bridge",
             "notableLocations": {
                 "description": [],
                 "name": []
@@ -460,7 +434,7 @@
         },
         "upper": {
             "description": "",
-            "name": "",
+            "name": "Seventh Tower",
             "notableLocations": {
                 "description": [],
                 "name": []
@@ -470,7 +444,7 @@
     "M5": {
         "lower": {
             "description": "",
-            "name": "",
+            "name": "Forgelight Towers",
             "notableLocations": {
                 "description": [],
                 "name": []
@@ -478,7 +452,7 @@
         },
         "middle": {
             "description": "",
-            "name": "",
+            "name": "Warden Towers",
             "notableLocations": {
                 "description": [],
                 "name": []
@@ -486,7 +460,7 @@
         },
         "upper": {
             "description": "",
-            "name": "",
+            "name": "Ivy Towers",
             "notableLocations": {
                 "description": [],
                 "name": []
@@ -496,7 +470,7 @@
     "N1": {
         "lower": {
             "description": "",
-            "name": "",
+            "name": "Longstairs",
             "notableLocations": {
                 "description": [],
                 "name": []
@@ -504,7 +478,7 @@
         },
         "middle": {
             "description": "",
-            "name": "",
+            "name": "High Hope",
             "notableLocations": {
                 "description": [],
                 "name": []
@@ -512,7 +486,7 @@
         },
         "upper": {
             "description": "",
-            "name": "",
+            "name": "Shae Lias",
             "notableLocations": {
                 "description": [],
                 "name": []
@@ -522,7 +496,7 @@
     "N2": {
         "lower": {
             "description": "",
-            "name": "",
+            "name": "Stonegard",
             "notableLocations": {
                 "description": [],
                 "name": []
@@ -530,7 +504,7 @@
         },
         "middle": {
             "description": "",
-            "name": "",
+            "name": "Oakbridge",
             "notableLocations": {
                 "description": [],
                 "name": []
@@ -538,7 +512,7 @@
         },
         "upper": {
             "description": "",
-            "name": "",
+            "name": "Oak Towers",
             "notableLocations": {
                 "description": [],
                 "name": []
@@ -548,7 +522,7 @@
     "N3": {
         "lower": {
             "description": "",
-            "name": "",
+            "name": "North Market",
             "notableLocations": {
                 "description": [],
                 "name": []
@@ -556,7 +530,7 @@
         },
         "middle": {
             "description": "",
-            "name": "",
+            "name": "Holdfast",
             "notableLocations": {
                 "description": [],
                 "name": []
@@ -564,7 +538,7 @@
         },
         "upper": {
             "description": "",
-            "name": "",
+            "name": "Crystal Bridge",
             "notableLocations": {
                 "description": [],
                 "name": []
@@ -574,7 +548,7 @@
     "T1": {
         "lower": {
             "description": "",
-            "name": "",
+            "name": "Terminus",
             "notableLocations": {
                 "description": [],
                 "name": []
@@ -582,7 +556,7 @@
         },
         "middle": {
             "description": "",
-            "name": "",
+            "name": "Tavick's Market",
             "notableLocations": {
                 "description": [],
                 "name": []
@@ -590,7 +564,7 @@
         },
         "upper": {
             "description": "",
-            "name": "",
+            "name": "Silver Gate",
             "notableLocations": {
                 "description": [],
                 "name": []
@@ -600,7 +574,7 @@
     "T2": {
         "lower": {
             "description": "",
-            "name": "",
+            "name": "Wroann's Gate",
             "notableLocations": {
                 "description": [],
                 "name": []
@@ -608,7 +582,7 @@
         },
         "middle": {
             "description": "",
-            "name": "",
+            "name": "Cornerstone",
             "notableLocations": {
                 "description": [],
                 "name": []
@@ -616,7 +590,7 @@
         },
         "upper": {
             "description": "",
-            "name": "",
+            "name": "Pinnacle",
             "notableLocations": {
                 "description": [],
                 "name": []
@@ -626,7 +600,7 @@
     "T3": {
         "lower": {
             "description": "",
-            "name": "",
+            "name": "Cogsgate",
             "notableLocations": {
                 "description": [],
                 "name": []
@@ -634,7 +608,7 @@
         },
         "middle": {
             "description": "",
-            "name": "",
+            "name": "Graywall's",
             "notableLocations": {
                 "description": [],
                 "name": []
@@ -642,7 +616,7 @@
         },
         "upper": {
             "description": "",
-            "name": "",
+            "name": "Twelve Pillars",
             "notableLocations": {
                 "description": [],
                 "name": []
@@ -652,7 +626,7 @@
     "T4": {
         "lower": {
             "description": "",
-            "name": "",
+            "name": "High Walls",
             "notableLocations": {
                 "description": [],
                 "name": []
@@ -660,7 +634,7 @@
         },
         "middle": {
             "description": "",
-            "name": "",
+            "name": "Dancing Shadows",
             "notableLocations": {
                 "description": [],
                 "name": []
@@ -668,7 +642,7 @@
         },
         "upper": {
             "description": "",
-            "name": "",
+            "name": "Copper Arch",
             "notableLocations": {
                 "description": [],
                 "name": []
@@ -678,7 +652,7 @@
     "T5": {
         "lower": {
             "description": "",
-            "name": "",
+            "name": "Dragoneyes",
             "notableLocations": {
                 "description": [],
                 "name": []
@@ -686,7 +660,7 @@
         },
         "middle": {
             "description": "",
-            "name": "",
+            "name": "Deathsgate",
             "notableLocations": {
                 "description": [],
                 "name": []
@@ -694,7 +668,7 @@
         },
         "upper": {
             "description": "",
-            "name": "",
+            "name": "Dalan's Refuge",
             "notableLocations": {
                 "description": [],
                 "name": []
@@ -704,7 +678,7 @@
     "T6": {
         "lower": {
             "description": "",
-            "name": "",
+            "name": "Black Arch",
             "notableLocations": {
                 "description": [],
                 "name": []
@@ -712,7 +686,7 @@
         },
         "middle": {
             "description": "",
-            "name": "",
+            "name": "Little Barrington",
             "notableLocations": {
                 "description": [],
                 "name": []
@@ -720,7 +694,33 @@
         },
         "upper": {
             "description": "",
-            "name": "",
+            "name": "Ocean View",
+            "notableLocations": {
+                "description": [],
+                "name": []
+            }
+        }
+    },
+    "T7": {
+        "lower": {
+            "description": "",
+            "name": "Foundation",
+            "notableLocations": {
+                "description": [],
+                "name": []
+            }
+        },
+        "middle": {
+            "description": "",
+            "name": "Kenton",
+            "notableLocations": {
+                "description": [],
+                "name": []
+            }
+        },
+        "upper": {
+            "description": "",
+            "name": "Sunrise",
             "notableLocations": {
                 "description": [],
                 "name": []
@@ -767,8 +767,8 @@
         "description": "",
         "name": "Sharn's Welcome",
         "notableLocations": {
-            "description": ["A quaint bar with an underground fight club. In its short history, it has hosted some of the most infamous brawls in Sharn. Rumour has it that the bar also serves as the meeting place for an intrepid band of journalists."],
-            "name": ["The Fruit Punch"]
+            "description": [],
+            "name": []
         }
     },
     "shipsTowers": {
