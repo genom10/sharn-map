@@ -2,12 +2,21 @@
 
 var descriptions;
 var selectedDistrict;
+var hoveredDistrict;
+var helpInfo;
+
+function showHelp() {
+    // Show the help information from the landing screen
+    document.getElementById("infobox").innerHTML = helpInfo;
+}
 
 function showSelected() {
-    // Check if there's a district already selected and update info if so
-    const selectedDistricts = document.getElementsByClassName("selected");
-    if (selectedDistricts.length) {
-        showInfo(selectedDistricts[0].id);
+    // Check if there's a district already selected and update info if so,
+    // otherwise show help info
+    if (selectedDistrict) {
+        showInfo(selectedDistrict.id);
+    } else {
+        showHelp();
     }
 }
 
@@ -43,7 +52,10 @@ function setDefaultDescriptions() {
     }
 }
 
-function loadMap() {
+function initialize() {
+    // Get help info
+    helpInfo = document.getElementById("infobox").innerHTML;
+
     // Ajax load the SVG
     const xhr = new XMLHttpRequest();
     xhr.open("GET", "sharn.svg", false);
@@ -72,9 +84,11 @@ function loadMap() {
         district.addEventListener("click", () => {
             selectDistrict(district);
         });
-        district.addEventListener("hover", () => {
-            // TODO: show information, so long as we're hovering
-        });
+        district.addEventListener("contextmenu", (ev) => {
+            ev.preventDefault();
+            deselectDistrict();
+            return false;
+        }, false);
     }
 
     // Add JSON upload handler
@@ -262,9 +276,10 @@ function selectDistrict(district) {
     const districtId = district.id;
     // Remove any other selected districts
     /* beautify preserve:start */
-    document.getElementsByClassName("selected")[0]?.classList.remove("selected");
+    selectedDistrict?.classList.remove("selected");
     /* beautify preserve:end */
     // And make this one selected
+    selectedDistrict = district;
     district.classList.add("selected");
     // Update permalink pointer
     const districtLink = document.getElementById("districtLink");
@@ -273,4 +288,13 @@ function selectDistrict(district) {
     showInfo(districtId);
 }
 
-loadMap();
+function deselectDistrict() {
+    // Deselect district in order to show help info
+    /* beautify preserve:start */
+    selectedDistrict?.classList.remove("selected");
+    /* beautify preserve:end */
+    selectedDistrict = null;
+    showHelp();
+}
+
+initialize();
