@@ -24,6 +24,10 @@ body {
         margin-left: 0;
         margin-right: 5%;
     }
+
+    #infobox {
+        overflow: auto;
+    }
 }
 
 h1 {
