@@ -27,8 +27,7 @@ body {
 }
 
 h1 {
-    font-size: 3rem;
-    font-style: italic;
+    font-size: 2em;
 }
 
 .map {
@@ -122,4 +121,10 @@ input[type=file] {
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+blockquote {
+    border-left: 2px solid black;
+    margin: 10px 0px 10px 0px;
+    padding: 5px 0px 5px 1.5em;
 }
