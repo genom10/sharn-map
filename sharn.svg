@@ -494,7 +494,7 @@
   <g
      id="g109338"
      class="keyItems"
-     transform="translate(141, 5)">
+     transform="translate(140, 3)">
     <text
        xml:space="preserve"
        id="text67593"
@@ -508,22 +508,23 @@
        id="path109373" />
     <path
        class="rail"
-       d="M 0,16.112097 H 14.043525"
+       d="M 0,21 H 14.043525"
        id="path109373-0" />
     <text
        xml:space="preserve"
        id="text67593-3-7"
        class="keyItem"
        x="16"
-       y="17"><tspan
-         id="tspan210631"><tspan
-           id="tspan210629">Lightning rail</tspan></tspan></text>
+       y="20">
+       <tspan x="16" id="tspan210629">Lightning</tspan>
+       <tspan x="16" dy="6.5">rail</tspan>
+   </text>
     <text
        xml:space="preserve"
        id="text67593-3-7-3"
        class="keyItem"
        x="16"
-       y="10.5"><tspan
+       y="11.5"><tspan
          id="tspan210633">Bridge</tspan></text>
   </g>
 </svg>
