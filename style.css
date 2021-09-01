@@ -10,34 +10,14 @@ body {
     font-family: 'Fira Sans', sans-serif;
 }
 
-@media only screen and (min-width: 768px) {
-    body {
-        grid-template-areas:
-            "map-container infobox"
-            "map-container footer";
-        grid-template-rows: 1fr 60px;
-        grid-template-columns: 50% 1fr;
-    }
-
-    #infobox,
-    #pageFooter {
-        margin-left: 0;
-        margin-right: 5%;
-    }
-
-    #infobox {
-        overflow: auto;
-    }
-}
-
 h1 {
     font-size: 2em;
 }
 
 .map {
     display: block;
-    width: 90%;
-    height: 90%;
+    width: 95%;
+    height: 95%;
     margin: auto;
 }
 
@@ -49,7 +29,7 @@ h1 {
 
 #infobox {
     grid-area: infobox;
-    margin: 0 2%;
+    padding: 0 2.5%;
 }
 
 #pageFooter {
@@ -57,7 +37,7 @@ h1 {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin: 0 2%;
+    padding: 0 2.5%;
 }
 
 .credits {
@@ -131,4 +111,23 @@ blockquote {
     border-left: 2px solid black;
     margin: 10px 0px 10px 0px;
     padding: 5px 0px 5px 1.5em;
+}
+
+@media only screen and (min-width: 768px) {
+    body {
+        grid-template-areas:
+            "map-container infobox"
+            "map-container footer";
+        grid-template-rows: 1fr 50px;
+        grid-template-columns: 50% 1fr;
+    }
+
+    #infobox,
+    #pageFooter {
+        padding-left: 0;
+    }
+
+    #infobox {
+        overflow: auto;
+    }
 }
