@@ -26,6 +26,7 @@ function descriptionsFromUrl(url) {
     const xhr_json = new XMLHttpRequest();
     xhr_json.open("GET", url, false);
     xhr_json.onload = () => {
+        console.log(`Loaded descriptions from ${url}`);
         setDescriptionsFromJson(xhr_json.responseText);
     };
     try {
@@ -82,6 +83,21 @@ function loadMap() {
         const uploadedJson = jsonInput.files[0];
         uploadedJson.text().then(setDescriptionsFromJson);
     };
+
+    // Check hashtag in URL
+    selectFromHash();
+    window.addEventListener("hashchange", selectFromHash);
+}
+
+function selectFromHash() {
+    // Select district based on hash in URL
+    const hash = window.location.hash.substr(1);
+    if (hash) {
+        const hashRef = document.getElementById(hash);
+        if (hashRef !== null) {
+            selectDistrict(hashRef);
+        }
+    }
 }
 
 function addNotableLocations(names, descriptions, section) {
