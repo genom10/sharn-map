@@ -66,7 +66,7 @@ h1 {
     margin-right: 0.5em;
 }
 
-.credits a {
+a {
     color: black;
 }
 
@@ -116,4 +116,10 @@ input[type=file] {
 
 #districtId::before {
     content: "JSON ID: ";
+}
+
+.wardTitle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }

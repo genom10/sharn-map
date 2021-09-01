@@ -259,13 +259,18 @@ function descToHtml(description) {
 
 function selectDistrict(district) {
     // Select a district and show information about it
+    const districtId = district.id;
     // Remove any other selected districts
     /* beautify preserve:start */
     document.getElementsByClassName("selected")[0]?.classList.remove("selected");
     /* beautify preserve:end */
     // And make this one selected
     district.classList.add("selected");
-    showInfo(district.id);
+    // Update permalink pointer
+    const districtLink = document.getElementById("districtLink");
+    districtLink.setAttribute("href", `#${districtId}`);
+    // Show district info
+    showInfo(districtId);
 }
 
 loadMap();
