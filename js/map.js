@@ -82,13 +82,12 @@ function initialize() {
     const districts = document.querySelectorAll(".districts>path");
     for (const district of districts) {
         district.addEventListener("click", () => {
-            selectDistrict(district);
+            if (selectedDistrict === district) {
+                deselectDistrict();
+            } else {
+                selectDistrict(district);
+            }
         });
-        district.addEventListener("contextmenu", (ev) => {
-            ev.preventDefault();
-            deselectDistrict();
-            return false;
-        }, false);
     }
 
     // Add JSON upload handler
