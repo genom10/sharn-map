@@ -216,10 +216,6 @@ function showInfo(districtId) {
     const wardName = wardEntry["name"];
     const wardDesc = descToHtml(wardEntry["description"]);
 
-    // Convenience for debugging + populating descriptions
-    if ([upperName, middleName, lowerName, upperDesc, middleDesc, lowerDesc, wardDesc].includes("")) {
-        lowerDesc += "\nID = " + districtId;
-    }
     if (!isCliffside) {
         upperName = "Upper: " + upperName;
         middleName = "Middle: " + middleName;
@@ -235,6 +231,9 @@ function showInfo(districtId) {
     upperInfo.innerHTML = upperDesc;
     middleInfo.innerHTML = middleDesc;
     lowerInfo.innerHTML = lowerDesc;
+
+    const districtIdSpan = document.getElementById("districtId");
+    districtIdSpan.innerText = districtId;
 }
 
 function descToHtml(description) {

@@ -56,7 +56,8 @@
     filter: brightness(150%);
 }
 
-.bridges {
+#bridges,
+.bridge {
     stroke-dasharray: 3.19999999, 1.59999999, 0.8, 1.59999999;
     stroke-dashoffset: 0;
     stroke-linecap: round;
@@ -87,4 +88,12 @@
 
 #cliffside>.districts {
     fill: cadetblue;
+}
+
+.keyItems {
+    font-size: 0.2em;
+}
+
+.keyTitle {
+    font-weight: bold;
 }

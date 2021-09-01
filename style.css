@@ -105,3 +105,15 @@ input[type=file] {
     top: 0;
     opacity: 0;
 }
+
+#districtId {
+    font-family: 'Fira Mono', monospace;
+    color: slategrey;
+    font-weight: 300;
+    font-size: 0.8rem;
+    float: right;
+}
+
+#districtId::before {
+    content: "JSON ID: ";
+}
