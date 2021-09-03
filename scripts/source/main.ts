@@ -19,7 +19,7 @@ var descriptions: { [x: string]: any; };
 var selectedDistrict: JQuery<HTMLElement> | null;
 var helpInfo: string;
 
-const infoBox = $("infobox");
+const infoBox = $("#infobox");
 
 function showHelp() {
     // Show the help information from the landing screen
@@ -72,7 +72,7 @@ function postMapLoad() {
     const districts = $(".districts>path");
     districts.on("click", function (this: JQuery<HTMLElement>) {
         const $this = $(this);
-        if (selectedDistrict === $this) {
+        if (selectedDistrict?.attr("id") === $this.attr("id")) {
             deselectDistrict();
         } else {
             selectDistrict($this);

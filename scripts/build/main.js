@@ -9,7 +9,7 @@ var dompurify_1 = __importDefault(require("dompurify"));
 var descriptions;
 var selectedDistrict;
 var helpInfo;
-var infoBox = (0, jquery_1.default)("infobox");
+var infoBox = (0, jquery_1.default)("#infobox");
 function showHelp() {
     // Show the help information from the landing screen
     infoBox.html(helpInfo);
@@ -57,7 +57,7 @@ function postMapLoad() {
     var districts = (0, jquery_1.default)(".districts>path");
     districts.on("click", function () {
         var $this = (0, jquery_1.default)(this);
-        if (selectedDistrict === $this) {
+        if ((selectedDistrict === null || selectedDistrict === void 0 ? void 0 : selectedDistrict.attr("id")) === $this.attr("id")) {
             deselectDistrict();
         }
         else {
