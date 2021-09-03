@@ -1,3 +1,5 @@
+@use "sass:color";
+
 .boundaries {
     fill: none;
     fill-opacity: 1;
@@ -48,17 +50,9 @@
     fill-opacity: 1;
 }
 
-.districts>path:hover {
-    filter: brightness(150%);
-}
-
-.selected {
-    filter: brightness(150%);
-}
-
 #bridges,
 .bridge {
-    stroke-dasharray: 3.19999999, 1.59999999, 0.8, 1.59999999;
+    stroke-dasharray: 3.2, 1.6, 0.8, 1.6;
     stroke-dashoffset: 0;
     stroke-linecap: round;
     stroke-miterlimit: 4;
@@ -66,28 +60,39 @@
     stroke: midnightblue;
 }
 
-#central>.districts {
-    fill: tomato;
+@mixin district-container($theme) {
+    .districts>path {
+        fill: $theme;
+
+        &:hover,
+        &.selected {
+            fill: color.scale($theme, $lightness: 50%);
+        }
+    }
 }
 
-#tavicks>.districts {
-    fill: lightcoral;
+#central {
+    @include district-container(tomato);
 }
 
-#menthis>.districts {
-    fill: darkorchid;
+#tavicks {
+    @include district-container(lightcoral);
 }
 
-#dura>.districts {
-    fill: cornflowerblue;
+#menthis {
+    @include district-container(darkorchid);
 }
 
-#northedge>.districts {
-    fill: aquamarine;
+#dura {
+    @include district-container(cornflowerblue);
 }
 
-#cliffside>.districts {
-    fill: cadetblue;
+#northedge {
+    @include district-container(aquamarine);
+}
+
+#cliffside {
+    @include district-container(cadetblue);
 }
 
 .keyItems {

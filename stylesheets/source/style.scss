@@ -43,10 +43,10 @@ h1 {
 .credits {
     list-style: none;
     display: flex;
-}
 
-.credits>li:not(:last-child) {
-    margin-right: 0.5em;
+    li:not(:last-child) {
+        margin-right: 0.5em;
+    }
 }
 
 a {
@@ -57,13 +57,15 @@ a {
     border-collapse: collapse;
 }
 
-.locationsTable th {
-    font-weight: bold;
-    text-align: left;
-}
+.locationsTable {
+    th {
+        font-weight: bold;
+        text-align: left;
+    }
 
-.locationsTable tr:nth-child(even) {
-    background-color: #f1f1f1;
+    tr:nth-child(even) {
+        background-color: #f1f1f1;
+    }
 }
 
 .uploadWrapper {
