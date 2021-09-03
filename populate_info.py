@@ -29,7 +29,7 @@ other_districts = {
     "N2": ("Stonegard", "Oakbridge", "Oak Towers"),
     "N3": ("North Market", "Holdfast", "Crystal Bridge"),
     "C1": ("North Towers", "Tradefair", "Platinum Heights"),
-    "C2": ("Boldrei's Heart", "Sovereign Towers", "Korran Thiven"),
+    "C2": ("Boldrei's Hearth", "Sovereign Towers", "Korran Thiven"),
     "C3": ("Ollandra's Kitchen", "Sword Point", "Skysedge Peak"),
     "C4": ("Granite Halls", "Dragon Towers", "Highest Towers"),
     "C5": ("Vallia Towers", "Dava Gate", "Mithral Tower"),
