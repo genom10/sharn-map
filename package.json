@@ -5,7 +5,8 @@
   "main": "",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "sass stylesheets/source:stylesheets/build && tsc && browserify scripts/build/[!bundle.js]* | uglifyjs --compress > scripts/build/bundle.js"
+    "build": "sass stylesheets/source:stylesheets/build && tsc && browserify scripts/build/[!bundle.js]* | uglifyjs --compress > scripts/build/bundle.js",
+    "copy": "mkdir -p site && cp --parents index.html sharn.svg districtInfo.json scripts/build/bundle.js stylesheets/build/*.css site/"
   },
   "repository": {
     "type": "git",
