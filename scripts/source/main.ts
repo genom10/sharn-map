@@ -1,26 +1,42 @@
-"use strict";
+import $ from "jquery";
+import marked from "marked";
+import DOMPurify from "dompurify";
 
-var descriptions;
-var selectedDistrict;
-var hoveredDistrict;
-var helpInfo;
+interface locationsDict {
+    name: string[];
+    description: string[];
+}
+interface wardEntry {
+    name: string;
+    description: string;
+}
+interface levelEntry extends wardEntry {
+    notableLocations: locationsDict;
+}
+type districtEntry = levelEntry | { upper: levelEntry, middle: levelEntry, lower: levelEntry };
+
+var descriptions: { [x: string]: any; };
+var selectedDistrict: JQuery<HTMLElement> | null;
+var helpInfo: string;
+
+const infoBox = $("infobox");
 
 function showHelp() {
     // Show the help information from the landing screen
-    document.getElementById("infobox").innerHTML = helpInfo;
+    infoBox.html(helpInfo);
 }
 
 function showSelected() {
     // Check if there's a district already selected and update info if so,
     // otherwise show help info
     if (selectedDistrict) {
-        showInfo(selectedDistrict.id);
+        showInfo(selectedDistrict.attr("id"));
     } else {
         showHelp();
     }
 }
 
-function setDescriptionsFromJson(jsonText) {
+function setDescriptionsFromJson(jsonText: string) {
     // Update descriptions variable based on JSON text
     try {
         descriptions = JSON.parse(jsonText);
@@ -31,74 +47,77 @@ function setDescriptionsFromJson(jsonText) {
     showSelected();
 }
 
-function descriptionsFromUrl(url) {
-    const xhr_json = new XMLHttpRequest();
-    xhr_json.open("GET", url, false);
-    xhr_json.onload = () => {
-        console.log(`Loaded descriptions from ${url}`);
-        setDescriptionsFromJson(xhr_json.responseText);
-    };
-    try {
-        xhr_json.send();
-    } catch (e) {
-        alert(`Error loading from ${url}, ensure that CORS is enabled at target.`);
-        setDefaultDescriptions();
-    }
+function descriptionsFromUrl(url: string) {
+    return $.getJSON(url, data => {
+        console.log(`Successfully loaded data from ${url}.`);
+        descriptions = data;
+    })
+        .fail(() => {
+            alert(`Error loading from ${url}, ensure that CORS is enabled at target.`);
+            setDefaultDescriptions();
+        });
 }
 
 function setDefaultDescriptions() {
     if (typeof descriptions === "undefined") {
-        descriptionsFromUrl("districtInfo.json");
+        return descriptionsFromUrl("districtInfo.json");
+    }
+}
+
+function postMapLoad() {
+    // Add SVG class
+    $("svg").addClass("map");
+
+    // Add click event listeners to districts
+    const districts = $(".districts>path");
+    districts.on("click", function (this: JQuery<HTMLElement>) {
+        const $this = $(this);
+        if (selectedDistrict === $this) {
+            deselectDistrict();
+        } else {
+            selectDistrict($this);
+        }
+    });
+
+    // Load descriptions
+    const descriptionLoad = loadDescriptions();
+
+    // Check for hashes
+    if (descriptionLoad) {
+        descriptionLoad.done(selectFromHash);
+    }
+    else {
+        selectFromHash();
+    }
+}
+
+function loadDescriptions() {
+    // Load the JSON containing the district information
+    // Check URL for query string with JSON file
+    const urlParams = new URLSearchParams(window.location.search);
+    const jsonUrl = urlParams.get("json");
+    if (jsonUrl) {
+        return descriptionsFromUrl(jsonUrl);
+    } else {
+        return setDefaultDescriptions();
     }
 }
 
 function initialize() {
     // Get help info
-    helpInfo = document.getElementById("infobox").innerHTML;
+    helpInfo = infoBox.html();
 
     // Ajax load the SVG
-    const xhr = new XMLHttpRequest();
-    xhr.open("GET", "sharn.svg", false);
-    xhr.overrideMimeType("image/svg+xml");
-    xhr.onload = (e) => {
-        document.getElementById("map-container").append(xhr.responseXML.documentElement);
-    };
-    xhr.send();
-
-    // As well as the JSON containing the district information
-    // Check URL for query string with JSON file
-    let urlParams = new URLSearchParams(window.location.search);
-    if (urlParams.has("json")) {
-        let jsonUrl = urlParams.get("json");
-        descriptionsFromUrl(jsonUrl);
-    } else {
-        setDefaultDescriptions();
-    }
-
-    // Add class to SVG
-    document.getElementsByTagName("svg")[0].classList.add("map");
-
-    // Add click event listeners to districts
-    const districts = document.querySelectorAll(".districts>path");
-    for (const district of districts) {
-        district.addEventListener("click", () => {
-            if (selectedDistrict === district) {
-                deselectDistrict();
-            } else {
-                selectDistrict(district);
-            }
-        });
-    }
+    $("#map-container").load("sharn.svg", postMapLoad);
 
     // Add JSON upload handler
-    const jsonInput = document.getElementById("jsonInput");
-    jsonInput.onchange = () => {
-        const uploadedJson = jsonInput.files[0];
+    const jsonInput = $("#jsonInput");
+    jsonInput.on("change", () => {
+        const uploadedJson = jsonInput.prop("files")[0];
         uploadedJson.text().then(setDescriptionsFromJson);
-    };
+    });
 
     // Check hashtag in URL
-    selectFromHash();
     window.addEventListener("hashchange", selectFromHash);
 }
 
@@ -106,14 +125,14 @@ function selectFromHash() {
     // Select district based on hash in URL
     const hash = window.location.hash.substr(1);
     if (hash) {
-        const hashRef = document.getElementById(hash);
-        if (hashRef !== null) {
+        const hashRef = $("#" + hash);
+        if (hashRef) {
             selectDistrict(hashRef);
         }
     }
 }
 
-function addNotableLocations(names, descriptions, section) {
+function addNotableLocations(names: string[], descriptions: string[], section: JQuery<HTMLElement>) {
     // Add notable locations table to the given section
     if (names.length == 0) {
         return;
@@ -140,8 +159,8 @@ function addNotableLocations(names, descriptions, section) {
         let tName = document.createElement("td");
         let tDesc = document.createElement("td");
 
-        tName.innerHTML = marked(districtName);
-        tDesc.innerHTML = marked(districtDesc);
+        tName.innerHTML = descToHtml(districtName);
+        tDesc.innerHTML = descToHtml(districtDesc);
 
         trow.appendChild(tName);
         trow.appendChild(tDesc);
@@ -149,35 +168,38 @@ function addNotableLocations(names, descriptions, section) {
         table.appendChild(trow);
     }
 
-    section.appendChild(table);
+    section.append(table);
 }
 
-function showInfo(districtId) {
-    const wardIds = {
+function showInfo(districtId: string | void) {
+    if (!districtId) {
+        return;
+    }
+    const wardIds: { [x: string]: string } = {
         "C": "central",
         "M": "menthis",
         "T": "tavicks",
         "N": "northedge",
         "D": "dura"
     };
-    const ward = document.getElementById("ward");
-    const wardInfo = document.getElementById("wardInfo");
+    const ward = $("#ward");
+    const wardInfo = $("#wardInfo");
 
-    const upperDistrict = document.getElementById("upperDistrict");
-    const middleDistrict = document.getElementById("middleDistrict");
-    const lowerDistrict = document.getElementById("lowerDistrict");
+    const upperDistrict = $("#upperDistrict");
+    const middleDistrict = $("#middleDistrict");
+    const lowerDistrict = $("#lowerDistrict");
 
-    const upperInfo = document.getElementById("upperInfo");
-    const middleInfo = document.getElementById("middleInfo");
-    const lowerInfo = document.getElementById("lowerInfo");
+    const upperInfo = $("#upperInfo");
+    const middleInfo = $("#middleInfo");
+    const lowerInfo = $("#lowerInfo");
 
-    const upperSection = document.getElementById("upperSection");
-    const middleSection = document.getElementById("middleSection");
-    const lowerSection = document.getElementById("lowerSection");
+    const upperSection = $("#upperSection");
+    const middleSection = $("#middleSection");
+    const lowerSection = $("#lowerSection");
 
     // Determine ward name
     let isCliffside = true;
-    let wardKey;
+    let wardKey = "cliffside";
     for (const key in wardIds) {
         if (Object.hasOwnProperty.call(wardIds, key)) {
             const currentWard = wardIds[key];
@@ -190,17 +212,13 @@ function showInfo(districtId) {
     }
 
     // Remove location information tables
-    const locationTables = document.getElementsByClassName("locationsTable");
-    for (const table of locationTables) {
-        table.remove();
-    }
+    $(".locationsTable").remove();
 
-    let upperName, middleName, lowerName;
-    let upperDesc, middleDesc, lowerDesc;
-    let upperLocs;
+    let upperName: string, middleName: string, lowerName: string;
+    let upperDesc: string, middleDesc: string, lowerDesc: string;
+    let upperLocs: locationsDict;
     const descEntry = descriptions[districtId];
     if (isCliffside) {
-        wardKey = "cliffside";
         upperName = descEntry["name"];
         upperDesc = descToHtml(descEntry["description"]);
         upperLocs = descEntry["notableLocations"];
@@ -210,9 +228,9 @@ function showInfo(districtId) {
         middleDesc = "";
         lowerDesc = "";
     } else {
-        const upperEntry = descEntry["upper"];
-        const middleEntry = descEntry["middle"];
-        const lowerEntry = descEntry["lower"];
+        const upperEntry: levelEntry = descEntry["upper"];
+        const middleEntry: levelEntry = descEntry["middle"];
+        const lowerEntry: levelEntry = descEntry["lower"];
 
         upperLocs = upperEntry["notableLocations"];
         const middleLocs = middleEntry["notableLocations"];
@@ -245,31 +263,30 @@ function showInfo(districtId) {
     const wardName = wardEntry["name"];
     const wardDesc = descToHtml(wardEntry["description"]);
 
-    ward.innerText = wardName;
+    ward.text(wardName);
     if (isCliffside) {
-        setDistrictName(upperDistrict, upperName, null);
-        middleDistrict.innerHTML = "";
-        lowerDistrict.innerHTML = "";
+        setDistrictName(upperDistrict, upperName);
+        middleDistrict.html("");
+        lowerDistrict.html("");
     } else {
         setDistrictName(upperDistrict, upperName, "upper");
         setDistrictName(middleDistrict, middleName, "middle");
         setDistrictName(lowerDistrict, lowerName, "lower");
     }
 
-    wardInfo.innerHTML = wardDesc;
-    upperInfo.innerHTML = upperDesc;
-    middleInfo.innerHTML = middleDesc;
-    lowerInfo.innerHTML = lowerDesc;
+    wardInfo.html(wardDesc);
+    upperInfo.html(upperDesc);
+    middleInfo.html(middleDesc);
+    lowerInfo.html(lowerDesc);
 
-    const districtIdSpan = document.getElementById("districtId");
-    districtIdSpan.innerText = districtId;
+    $("#districtId").text(districtId);
 }
 
-function setDistrictName(nameElement, name, height) {
+function setDistrictName(nameElement: JQuery<HTMLElement>, name: string, height?: string) {
     // Set a district name for a given height
     const nameText = document.createTextNode(name);
     // Clear the element
-    nameElement.innerHTML = "";
+    nameElement.html("");
 
     let direction;
     switch (height) {
@@ -284,47 +301,41 @@ function setDistrictName(nameElement, name, height) {
             break;
         default:
             // Cliffside district
-            nameElement.appendChild(nameText);
+            nameElement.append(nameText);
             return;
     }
 
     const heightIcon = document.createElement("i");
     heightIcon.classList.add("heightIcon");
     heightIcon.classList.add("bi");
-    // heightIcon.classList.add(`bi-arrow-${direction}-circle-fill`);
     heightIcon.classList.add(`bi-arrow-${direction}-square-fill`);
 
-    nameElement.appendChild(heightIcon);
-    nameElement.appendChild(nameText);
+    nameElement.append(heightIcon);
+    nameElement.append(nameText);
 }
 
-function descToHtml(description) {
+function descToHtml(description: string) {
     // Convert a markdown description to sanitised HTML
     return DOMPurify.sanitize(marked(description));
 }
 
-function selectDistrict(district) {
+function selectDistrict(district: JQuery<HTMLElement>) {
     // Select a district and show information about it
-    const districtId = district.id;
+    const districtId = district.attr("id");
     // Remove any other selected districts
-    /* beautify preserve:start */
-    selectedDistrict?.classList.remove("selected");
-    /* beautify preserve:end */
+    selectedDistrict?.removeClass("selected");
     // And make this one selected
     selectedDistrict = district;
-    district.classList.add("selected");
+    district.addClass("selected");
     // Update permalink pointer
-    const districtLink = document.getElementById("districtLink");
-    districtLink.setAttribute("href", `#${districtId}`);
+    $("#districtLink").attr("href", `#${districtId}`);
     // Show district info
     showInfo(districtId);
 }
 
 function deselectDistrict() {
     // Deselect district in order to show help info
-    /* beautify preserve:start */
-    selectedDistrict?.classList.remove("selected");
-    /* beautify preserve:end */
+    selectedDistrict?.removeClass("selected");
     selectedDistrict = null;
     showHelp();
 }
