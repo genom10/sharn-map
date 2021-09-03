@@ -70,7 +70,7 @@
         },
         "upper": {
             "description": "",
-            "name": "Skysedge Peak",
+            "name": "Skysedge Park",
             "notableLocations": {
                 "description": [],
                 "name": []
@@ -184,7 +184,7 @@
     "D2": {
         "lower": {
             "description": "",
-            "name": "Old Keep",
+            "name": "Oldkeep",
             "notableLocations": {
                 "description": [],
                 "name": []
@@ -496,7 +496,7 @@
     "N2": {
         "lower": {
             "description": "",
-            "name": "Stonegard",
+            "name": "Stoneyard",
             "notableLocations": {
                 "description": [],
                 "name": []
@@ -564,7 +564,7 @@
         },
         "upper": {
             "description": "",
-            "name": "Silver Gate",
+            "name": "Silvergate",
             "notableLocations": {
                 "description": [],
                 "name": []
@@ -608,7 +608,7 @@
         },
         "middle": {
             "description": "",
-            "name": "Graywall's",
+            "name": "Graywall",
             "notableLocations": {
                 "description": [],
                 "name": []
