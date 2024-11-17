@@ -732,11 +732,11 @@
         "name": "Central Plateau"
     },
     "cliffside": {
-        "description": "Far below most of the bustle of the main city, the docks of Cliffside cling precariously to the steep banks of the Dagger River.",
+        "description": "This waterfront district, full of businesses that cater to the sailors who pass through Sharn’s port, can be a rough and tumble place. Legitimate services can be found here—ships need supplies and repairs, goods need to be stored, captains need a place to hire a crew, and sailors need a bed on dry land to sleep in once in a while—but other businesses spring up simply to meet demand. These less-than legitimate services include bordellos, taverns, casinos, and even shadier entertainments for sailors to spend their off-dutyhoursandwageson. The City Watch finds it hard to keep order here (or perhaps the Watch captains simply find it hard to care), and Cliffside is one of the most crime-ridden wards in all of Sharn. Some say the problem is exacerbated by the presence of sahuagin in the ward, who sell their services as guides through the Straits of Shargon.",
         "name": "Cliffside"
     },
     "dura": {
-        "description": "",
+        "description": "Dura, one of the largest and oldest quarter of Sharn, rises from the ruins Shaarat and the Old Sharn that fell at the end of the War of the Mark. But as Sharn has grown over the centuries since that terrible conflict, Dura has been left behind. Today, many consider it a blight on the city, riddled as it is with poverty and crime. Dura is home to the majority of the lower classes of Sharn, and Lower Dura is generally considered to be little better than the Cogs. Nonetheless, Dura is the gateway to the Dagger River. Cargo passes from Cliffside up through Dura, and most of the vast warehouse districts are located in the lower ward. The Bazaar of Dura is a source for all manner of unusual goods, including a wide range of illegal merchandise. Dura may be dangerous and dirty, but it is certainly a gateway to adventure. ",
         "name": "Dura"
     },
     "grayflood": {
@@ -748,7 +748,7 @@
         }
     },
     "menthis": {
-        "description": "",
+        "description": "The Menthis Plateau is the hub of Sharn’s entertainment industry, as well as its most diverse ethnic quarter and the seat of Morgrave University. Like the Central Plateau, its location allows it to draw visitors from all over the city to sample its entertainment offerings, and it also draws tourists from across the Five Nations",
         "name": "Menthis Plateau"
     },
     "mudCaves": {
@@ -760,7 +760,7 @@
         }
     },
     "northedge": {
-        "description": "",
+        "description": "Northedge, one of the quietest regions within Sharn, is a residential quarter. Most of its inhabitants are crafters and commoners, people who make an honest living within the great city. As a result, it is an uncommon destination for adventurers. However, a variety of tradesfolk and artisans work out of their Northedge homes, and it is possible that a party will be recommended to one of the Northedge specialists",
         "name": "Northedge"
     },
     "sharnsWelcome": {
@@ -780,7 +780,7 @@
         }
     },
     "tavicks": {
-        "description": "",
+        "description": "For most travelers, Tavick’s Landing is the gateway to Sharn. The Orien lightning rail station at Terminus brings in hundreds of travelers each day, and many more arrive via the Old Road at Wroann’s Gate. In many ways, Tavick’s Landing is the most eclectic quarter of Sharn, blending residential areas with commercial and entertainment districts that cater to the traders, travelers, and tourists who pass through the city. During the Last War, foreigners were carefully monitored as they entered the city, and even today the effects of the war can still be felt. An entire district in Lower Tavick’s Landing has been converted to house Cyran refugees and other people dislocated by the war. ",
         "name": "Tavick's Landing"
     }
 }
